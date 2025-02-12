@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Piece Background</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('https://w0.peakpx.com/wallpaper/675/782/HD-wallpaper-one-piece-anime-iqoo-one-piece.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+        .watch-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background-color: #ff4757;
+            border: 2px solid #ff6b81;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-transform: uppercase;
+            font-family: 'Arial', sans-serif;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        .watch-button:hover {
+            background-color: #ff6b81;
+            transform: scale(1.1);
+        }
+        .watch-button:active {
+            transform: scale(0.95);
+        }
+        .one-piece-text {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .one-piece-text .title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .one-piece-text .luffy {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .one-piece-text .subtext {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .shutter {
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: top 0.5s ease;
+        }
+        .shutter.visible {
+            top: 0;
+        }
+        .shutter a {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 10px 0;
+            padding: 10px 20px;
+            background-color: #ff4757;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .shutter a:hover {
+            background-color: #ff6b81;
+            transform: scale(1.1);
+        }
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .close-button:hover {
+            color: #ff4757;
+        }
+        .message {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border: 2px solid #ff4757;
+            border-radius: 10px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .back-button {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background-color: #ff4757;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #ff6b81;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="one-piece-text">
+        <div class="title">꧁𓊈𒆜🅾🅽🅴 🅿🅸🅴🅲🅴𒆜𓊉꧂</div>
+        <div class="luffy">𝕷𝖀𝕱𝕱𝖄</div>
+        <div class="subtext">𝕿𝖍𝖊 𝕮𝖆𝖕𝖙𝖆𝖎𝖓 𝖔𝖋 𝕿𝖍𝖊 𝕾𝖙𝖗𝖆𝖜 𝕳𝖆𝖙𝖘</div>
+    </div>
+    <button class="watch-button" onclick="toggleShutter()">Watch Now</button>
+
+    <!-- Shutter with episode links and close button -->
+    <div class="shutter" id="shutter">
+        <div class="close-button" onclick="toggleShutter()">✕</div>
+        <a href="#" onclick="showMessage()">Ep 1</a>
+        <a href="#" onclick="showMessage()">Ep 2</a>
+        <a href="#" onclick="showMessage()">Ep 3</a>
+    </div>
+
+    <!-- Message and Back button -->
+    <div class="message" id="message">
+        vid abhi nhi lagi
+        <button class="back-button" onclick="goBack()">Back</button>
+    </div>
+
+    <script>
+        function toggleShutter() {
+            const shutter = document.getElementById('shutter');
+            shutter.classList.toggle('visible');
+        }
+
+        function showMessage() {
+            const shutter = document.getElementById('shutter');
+            const message = document.getElementById('message');
+            shutter.style.display = 'none';
+            message.style.display = 'block';
+        }
+
+        function goBack() {
+            const shutter = document.getElementById('shutter');
+            const message = document.getElementById('message');
+            shutter.style.display = 'flex';
+            message.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
